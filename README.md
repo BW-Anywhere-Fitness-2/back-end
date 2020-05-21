@@ -100,7 +100,7 @@ Returns a list of all classes including instructor information for each class
   }
 ```
 
-**Get Class by ID**
+**Get Class by ID (requires authentication)**
 
 GET - /api/classes/:id
 
