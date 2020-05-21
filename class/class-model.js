@@ -36,9 +36,30 @@ function getAllClasses() {
     );
 }
 
+function getClassById(id) {
+  return db("instructor as i")
+    .join("class as c", "i.id", "c.instructor_id")
+    .select(
+      "c.id",
+      "c.location",
+      "c.class_name",
+      "c.class_type",
+      "c.class_desc",
+      "c.start_time",
+      "c.duration",
+      "c.intensity",
+      "c.location",
+      "c.registered",
+      "c.max_size",
+      "i.name as instructor_name"
+    )
+    .where("c.id", id);
+}
+
 module.exports = {
   getAllClasses,
   add,
   updateClass,
-  deleteClass
+  deleteClass,
+  getClassById
 };
