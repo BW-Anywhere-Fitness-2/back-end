@@ -18,6 +18,22 @@ router.get("/", (req, res) => {
     });
 });
 
+// Get class by ID
+
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  classModel
+    .getClassById(id)
+    .then(classes => {
+      res.status(200).json(classes);
+    })
+    .catch(err => {
+      res.status(400).json({
+        message: "There was an error when checking your instructor ID"
+      });
+    });
+});
+
 // Update class
 
 router.put("/:id", (req, res) => {

@@ -100,6 +100,28 @@ Returns a list of all classes including instructor information for each class
   }
 ```
 
+**Get Class by ID**
+
+GET - /api/classes/:id
+
+Returns a list of a class for a particular ID
+
+**Example**
+
+```{
+    "id": 1,
+    "location": "Durham, NC",
+    "class_name": "Body Pump 2",
+    "class_type": "Aerobics",
+    "class_desc": "Quick workout to get the sweat flowing!",
+    "start_time": "9AM",
+    "duration": "30 Minutes",
+    "intensity": "Moderate",
+    "registered": 5,
+    "max_size": 20,
+    "instructor_name": "Hulk Hogan"
+  }
+
 **Create class by Instructor ID (requires authentication)**
 
 POST - /api/classes/instructor/:id
@@ -133,27 +155,29 @@ GET - /api/users
 **Example**
 
 ```
- {
-    "id": 1,
-    "username": "tom",
-    "name": "Tom Smith",
-    "email": "tom@yahoo.com",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend, diam interdum dapibus imperdiet, diam est sagittis mi, a mattis quam nulla et lacus."
-  },
-  {
-    "id": 2,
-    "username": "john",
-    "name": "John Roberts",
-    "email": "john@roberts.com",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend, diam interdum dapibus imperdiet, diam est sagittis mi, a mattis quam nulla et lacus."
-  },
-  {
-    "id": 3,
-    "username": "bill",
-    "name": "Bill Edwards",
-    "email": "bill@aol.com",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend, diam interdum dapibus imperdiet, diam est sagittis mi, a mattis quam nulla et lacus."
-  }
+
+{
+"id": 1,
+"username": "tom",
+"name": "Tom Smith",
+"email": "tom@yahoo.com",
+"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend, diam interdum dapibus imperdiet, diam est sagittis mi, a mattis quam nulla et lacus."
+},
+{
+"id": 2,
+"username": "john",
+"name": "John Roberts",
+"email": "john@roberts.com",
+"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend, diam interdum dapibus imperdiet, diam est sagittis mi, a mattis quam nulla et lacus."
+},
+{
+"id": 3,
+"username": "bill",
+"name": "Bill Edwards",
+"email": "bill@aol.com",
+"bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend, diam interdum dapibus imperdiet, diam est sagittis mi, a mattis quam nulla et lacus."
+}
+
 ```
 
 **Get User by ID (requires authentication)**
@@ -167,25 +191,29 @@ GET - /api/instructors
 **Example**
 
 ```
-  {
-    "id": 1,
-    "username": "hulk",
-    "name": "Hulk Hogan",
-    "email": "hulk@hogan.com",
-    "bio": "World class wrestler ready to get you buff!"
-  },
-  {
-    "id": 2,
-    "username": "muscle",
-    "name": "Muscle Man",
-    "email": "muscle@muscle.com",
-    "bio": "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-  },
-  {
-    "id": 3,
-    "username": "rock",
-    "name": "Dwayne Johnson",
-    "email": "dwayne@therock.com",
-    "bio": "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-  }
+
+{
+"id": 1,
+"username": "hulk",
+"name": "Hulk Hogan",
+"email": "hulk@hogan.com",
+"bio": "World class wrestler ready to get you buff!"
+},
+{
+"id": 2,
+"username": "muscle",
+"name": "Muscle Man",
+"email": "muscle@muscle.com",
+"bio": "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+},
+{
+"id": 3,
+"username": "rock",
+"name": "Dwayne Johnson",
+"email": "dwayne@therock.com",
+"bio": "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+}
+
+```
+
 ```
