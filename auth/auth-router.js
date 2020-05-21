@@ -99,7 +99,7 @@ router.post("/login/instructor", async (req, res, next) => {
 
     res.json({
       message: `Welcome ${user.username}!`,
-      token: jwt.sign(tokenPayload, process.env.JWT_SECRET || "coolbeans")
+      token: jwt.sign(tokenPayload, process.env.JWT_SECRET || "cooldude")
     });
   } catch (err) {
     next(err);
