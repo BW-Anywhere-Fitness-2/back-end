@@ -9,19 +9,23 @@ const secret = process.env.JWT_SECRET || "cooldude";
 function restrict() {
   return async (req, res, next) => {
     console.log(res);
-    const authError = {
-      message: "shall not pass!"
+    const authError1 = {
+      message: "shall not pass - no token!"
+    };
+
+    const authError2 = {
+      message: "shall not pass - issue with JWT!"
     };
 
     try {
       const token = req.headers.authorization;
       if (!token) {
-        return res.status(401).json(authError);
+        return res.status(401).json(authError1);
       }
 
       jwt.verify(token, secret, (err, decodedPayload) => {
         if (err) {
-          return res.status(401).json(authError);
+          return res.status(401).json(authError2);
         }
 
         req.token = decodedPayload;
