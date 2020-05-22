@@ -106,7 +106,7 @@ Returns a list of all classes including instructor information for each class
 
 GET - /api/classes/:id
 
-Returns a list of a class for a particular ID
+Returns a class for a particular ID
 
 **Example**
 
@@ -141,6 +141,45 @@ Id is required of the class instructor who will be teaching the class
 | location   | string | Yes      |       |
 | registered | string | No       |       |
 | max_size   | string | No       |       |
+
+**Get list of Classes by Instructor ID**
+
+GET - /api/instructors/classes/:id
+
+This endpoint will return all of the classes for a particular instructor
+
+**Example**
+
+```
+
+{
+"id": 1,
+"instructor_id": 1,
+"class_name": "Body Pump 2",
+"class_type": "Aerobics",
+"class_desc": "Quick workout to get the sweat flowing!",
+"start_time": "9AM",
+"duration": "30 Minutes",
+"intensity": "Moderate",
+"location": "Durham, NC",
+"registered": 5,
+"max_size": 20
+},
+{
+"id": 8,
+"instructor_id": 1,
+"class_name": "Extreme Weightlifting",
+"class_type": "Weightlifting",
+"class_desc": "Super Intense workout to get the sweat flowing!",
+"start_time": "9AM",
+"duration": "60 Minutes",
+"intensity": "Extreme",
+"location": "Graham, NC",
+"registered": 5,
+"max_size": 20
+}
+
+```
 
 **Update class by ID (requires authentication)**
 

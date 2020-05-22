@@ -29,6 +29,10 @@ function getInstInfo(id) {
     .first("id", "username", "name", "email", "bio");
 }
 
+function getInstClasses(id) {
+  return db("class as c").where("instructor_id", id);
+}
+
 function getAllInst() {
   return db("instructor").select("id", "username", "name", "email", "bio");
 }
@@ -38,5 +42,6 @@ module.exports = {
   findById,
   findBy,
   getInstInfo,
-  getAllInst
+  getAllInst,
+  getInstClasses
 };

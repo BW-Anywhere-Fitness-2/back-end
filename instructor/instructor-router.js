@@ -18,4 +18,22 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/classes/:id/", (req, res) => {
+  const id = req.params.id;
+
+  instructorModel
+    .getInstClasses(req.params.id)
+    .then(classes => {
+      res.status(200).json(classes);
+    })
+    .catch(err => {
+      res
+        .status(400)
+        .json({
+          message:
+            "An error has occurred when accessing classes for this instructor ID"
+        });
+    });
+});
+
 module.exports = router;
