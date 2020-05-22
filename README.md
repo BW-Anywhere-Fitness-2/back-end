@@ -142,6 +142,7 @@ Id is required of the class instructor who will be teaching the class
 | registered | string | No       |       |
 | max_size   | string | No       |       |
 
+
 **Get list of Classes by Instructor ID**
 
 GET - /api/instructors/classes/:id
