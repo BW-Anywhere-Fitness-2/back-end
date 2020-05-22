@@ -123,6 +123,7 @@ Returns a class for a particular ID
     "max_size": 20,
     "instructor_name": "Hulk Hogan"
   }
+```
 
 **Create class by Instructor ID (requires authentication)**
 
@@ -141,7 +142,6 @@ Id is required of the class instructor who will be teaching the class
 | location   | string | Yes      |       |
 | registered | string | No       |       |
 | max_size   | string | No       |       |
-
 
 **Get list of Classes by Instructor ID**
 
@@ -255,7 +255,5 @@ GET - /api/instructors
 "email": "dwayne@therock.com",
 "bio": "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
 }
-
-```
 
 ```
