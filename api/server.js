@@ -12,7 +12,7 @@ const server = express();
 
 server.use(helmet());
 
-var allowedOrigins = ["http://localhost:3000", "http://yourapp.com"];
+var allowedOrigins = ["*"];
 server.use(
   cors({
     origin: function(origin, callback) {
