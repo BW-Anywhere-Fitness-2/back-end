@@ -11,7 +11,7 @@ const userRouter = require("../user/user-router");
 const server = express();
 
 server.use(helmet());
-server.use(cors({ credentials: true, origin: "http://localhost:3000" })); // need to add additional cors argument to get this to work on heroku
+server.use(cors()); // need to add additional cors argument to get this to work on heroku
 server.use(express.json());
 
 server.use("/api/auth", authRouter);
