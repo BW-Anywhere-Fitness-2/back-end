@@ -8,7 +8,6 @@ const secret = process.env.JWT_SECRET || "cooldude";
 
 function restrict() {
   return async (req, res, next) => {
-    console.log(res);
     const authError1 = {
       message: "shall not pass - no token!"
     };

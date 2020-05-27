@@ -42,6 +42,15 @@ POST - /api/auth/login/user
 | username | string | Yes      |
 | password | string | Yes      |
 
+**Example Response**
+
+```
+{
+  "message": "Welcome {username}!",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFicm9iaW5zIiwidXNlcklkIjo3LCJpYXQiOjE1OTA1MzQ2NTR9.z7Up6Qs4YqRu5wZqvuLFaTMAcbP2hQ-BgTo43TzMrek"
+}
+```
+
 **Instructor Login**
 
 POST - /api/auth/login/instructor
@@ -50,6 +59,15 @@ POST - /api/auth/login/instructor
 | -------- | ------ | -------- |
 | username | string | Yes      |
 | password | string | Yes      |
+
+**Example Response**
+
+```
+{
+  "message": "Welcome instructor1!",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imluc3RydWN0b3IxIiwidXNlcklkIjo3LCJpYXQiOjE1OTA1MzQ3NTV9.LqVetxoUQB8iX027H5s2rfubFvGPehS_1Wb3Ixbm6iA"
+}
+```
 
 Both user and instructor login endpoints return a json message and a token.
 
