@@ -82,11 +82,32 @@ describe("login and register endpoint tests", () => {
         expect(res.type).toBe("application/json");
       });
   });
+  it("GET /classes data test", async () => {
+    await Users.add({
+      name: "Mr. Cool",
+      username: "cool",
+      password: "beans",
+      email: "cool@cool.com",
+      bio: "Cool bio"
+    });
+    await supertest(server)
+      .post("/api/auth/login/user")
+      .send({ username: "cool", password: "beans" })
+      .then(res => {
+        return res.body.token;
+      })
+      .then(token => {
+        return supertest(server)
+          .get("/api/classes/1")
+          .set("Authorization", token)
+          .then(res => {
+            expect(res.body.location).toBe("Durham, NC");
+          });
+      });
+  });
 });
-
 // describe("individual class data test", () => {
 //   beforeEach(async () => {
 //     await db("user").truncate();
 //     await db("instructor").truncate();
 //   });
-// });
