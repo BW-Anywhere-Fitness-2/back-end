@@ -3,6 +3,7 @@ const server = require("../index");
 const db = require("../database/dbConfig");
 
 const Users = require("../auth/auth-model");
+const Instructors = require("../instructor/instructor-model");
 
 let dbToken;
 
@@ -83,7 +84,7 @@ describe("login and register endpoint tests", () => {
       });
   });
   it("GET /classes data test", async () => {
-    await Users.add({
+    await Instructors.add({
       name: "Mr. Cool",
       username: "cool",
       password: "beans",
@@ -91,7 +92,7 @@ describe("login and register endpoint tests", () => {
       bio: "Cool bio"
     });
     await supertest(server)
-      .post("/api/auth/login/user")
+      .post("/api/auth/login/instructor")
       .send({ username: "cool", password: "beans" })
       .then(res => {
         return res.body.token;
@@ -99,7 +100,7 @@ describe("login and register endpoint tests", () => {
       .then(token => {
         console.log("token from classes test", token);
         return supertest(server)
-          .get("/api/classes/1")
+          .post("api/classes/instructor/1")
           .set("Authorization", token)
           .then(res => {
             console.log("res.statusCode", res.statusCode);
