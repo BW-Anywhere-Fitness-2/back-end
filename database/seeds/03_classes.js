@@ -1,7 +1,6 @@
 exports.seed = async function(knex) {
   await knex("class").insert([
     {
-      id: 1,
       class_name: "Body Pump",
       class_type: "Aerobics",
       class_desc: "Quick workout to get the sweat flowing!",
@@ -14,7 +13,6 @@ exports.seed = async function(knex) {
       instructor_id: 1
     },
     {
-      id: 2,
       class_name: "HIIT Express",
       class_type: "HIIT",
       class_desc: "Quick workout to get the sweat flowing!",
@@ -27,7 +25,6 @@ exports.seed = async function(knex) {
       instructor_id: 2
     },
     {
-      id: 3,
       class_name: "Powerlifting Extreme",
       class_type: "CrossFit",
       class_desc: "Intense CrossFit type workout to get the sweat flowing!",
@@ -40,7 +37,6 @@ exports.seed = async function(knex) {
       instructor_id: 3
     },
     {
-      id: 4,
       class_name: "Bodyweight Burner",
       class_type: "Bodyweight",
       class_desc: "Intense bodyweight workout to get the sweat flowing!",
@@ -53,7 +49,6 @@ exports.seed = async function(knex) {
       instructor_id: 4
     },
     {
-      id: 5,
       class_name: "Hip Hop Dance",
       class_type: "Aerobic",
       class_desc: "Fun workout to get the sweat flowing!",
@@ -66,7 +61,6 @@ exports.seed = async function(knex) {
       instructor_id: 5
     },
     {
-      id: 6,
       class_name: "Zumba Zoom",
       class_type: "Zumba",
       class_desc: "Beginner Zumba workout to get the sweat flowing!",
