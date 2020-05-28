@@ -97,10 +97,12 @@ describe("login and register endpoint tests", () => {
         return res.body.token;
       })
       .then(token => {
+        console.log("token from classes test", token);
         return supertest(server)
           .get("/api/classes/1")
           .set("Authorization", token)
           .then(res => {
+            console.log("res.statusCode", res.statusCode);
             expect(res.body.location).toBe("Durham, NC");
           });
       });
