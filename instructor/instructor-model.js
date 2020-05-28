@@ -6,7 +6,9 @@ async function add(instructor) {
   console.log(instructor);
   instructor.password = await bcrypt.hash(instructor.password, 14);
 
-  const [id] = await db("instructor").insert(instructor);
+  const [id] = await db("instructor")
+    .insert(instructor)
+    .returning("id");
   return findById(id);
 }
 

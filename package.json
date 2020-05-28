@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=testing jest --watch",
-    "server": "nodemon index.js",
-    "start": "node index.js"
+    "server": "cross-env NODE_ENV=development nodemon -r dotenv/config index.js",
+    "start": "cross-env NODE_ENV=production node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,10 +26,11 @@
     "helmet": "^3.22.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.1",
+    "pg": "^8.2.1",
+    "cross-env": "^7.0.2",
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
