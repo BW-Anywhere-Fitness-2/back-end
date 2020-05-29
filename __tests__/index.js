@@ -13,7 +13,6 @@ beforeEach(async done => {
     .send({ username: "hulk", password: "pass" });
 
   token = userLogin.body.token;
-  console.log(token);
   done();
 });
 
@@ -24,6 +23,59 @@ describe("instructor endpoints", () => {
       .set("Authorization", token);
     expect(inst.body.name).toBe("Hulk Hogan");
     expect(inst.status).toBe(200);
+  });
+
+  it("show all instructors", async () => {
+    const insts = await supertest(server)
+      .get("/api/instructors")
+      .set("Authorization", token);
+    expect(insts.status).toBe(200);
+    expect(insts.body[1].name).toBe("Muscle Man");
+    expect(insts.type).toBe("application/json");
+  });
+
+  it("create new class by instructor id", async () => {
+    const insts = await supertest(server)
+      .post("/api/classes/instructor/1")
+      .set("Authorization", token)
+      .send({
+        class_name: "Zumba Zoom 123456",
+        class_type: "Zumba",
+        class_desc: "Beginner Zumba workout to get the sweat flowing!",
+        start_time: "3PM",
+        duration: "30 Minutes",
+        intensity: "Beginner",
+        location: "Virginia Beach, VA",
+        registered: 9,
+        max_size: 20
+      });
+    expect(insts.status).toBe(201);
+    expect(insts.type).toBe("application/json");
+  });
+  // it("update class by id", async () => {
+  //   const upclass = await supertest(server)
+  //     .put("/api/classes/1")
+  //     .send({ duration: "45 Minutes" })
+  //     .set("Token", token);
+  //   expect(upclass.status).toBe(200);
+  // });
+});
+
+describe("user endpoints", () => {
+  it("get individual user", async () => {
+    const inst = await supertest(server)
+      .get("/api/users/1")
+      .set("Authorization", token);
+    expect(inst.body.name).toBe("Tom Smith");
+    expect(inst.status).toBe(200);
+  });
+  it("show all users", async () => {
+    const insts = await supertest(server)
+      .get("/api/users")
+      .set("Authorization", token);
+    expect(insts.status).toBe(200);
+    expect(insts.body[1].name).toBe("John Roberts");
+    expect(insts.type).toBe("application/json");
   });
 });
 
