@@ -25,6 +25,15 @@ describe("instructor endpoints", () => {
     expect(inst.status).toBe(200);
   });
 
+  it("update class by id", async () => {
+    const upclass = await supertest(server)
+      .put("/api/classes/1")
+      .set("Authorization", token)
+      .send({ duration: "45 Minutes" });
+
+    expect(upclass.status).toBe(200);
+  });
+
   it("show all instructors", async () => {
     const insts = await supertest(server)
       .get("/api/instructors")
@@ -52,13 +61,6 @@ describe("instructor endpoints", () => {
     expect(insts.status).toBe(201);
     expect(insts.type).toBe("application/json");
   });
-  // it("update class by id", async () => {
-  //   const upclass = await supertest(server)
-  //     .put("/api/classes/1")
-  //     .send({ duration: "45 Minutes" })
-  //     .set("Token", token);
-  //   expect(upclass.status).toBe(200);
-  // });
 });
 
 describe("user endpoints", () => {
