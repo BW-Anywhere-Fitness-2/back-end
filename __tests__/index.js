@@ -8,6 +8,8 @@ const Instructors = require("../instructor/instructor-model");
 let token;
 
 beforeEach(async done => {
+  await db.seed.run();
+
   const userLogin = await supertest(server)
     .post("/api/auth/login/instructor")
     .send({ username: "hulk", password: "pass" });
@@ -61,6 +63,17 @@ describe("instructor endpoints", () => {
     expect(insts.status).toBe(201);
     expect(insts.type).toBe("application/json");
   });
+  it("create new instructor", async () => {
+    const newuser = await supertest(server)
+      .post("/api/auth/register/instructor")
+      .send({
+        username: "coolio",
+        password: "1234",
+        name: "Test Name",
+        email: "abr@test.com"
+      });
+    expect(newuser.status).toBe(201);
+  });
 });
 
 describe("user endpoints", () => {
@@ -78,6 +91,17 @@ describe("user endpoints", () => {
     expect(insts.status).toBe(200);
     expect(insts.body[1].name).toBe("John Roberts");
     expect(insts.type).toBe("application/json");
+  });
+  it("create new user", async () => {
+    const newuser = await supertest(server)
+      .post("/api/auth/register/user")
+      .send({
+        username: "coolio",
+        password: "1234",
+        name: "Test Name",
+        email: "abr@test.com"
+      });
+    expect(newuser.status).toBe(201);
   });
 });
 
