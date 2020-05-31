@@ -18,6 +18,10 @@ beforeEach(async done => {
   done();
 });
 
+afterAll(async () => {
+  await db.destroy();
+});
+
 describe("instructor endpoints", () => {
   it("get individual instructor", async () => {
     const inst = await supertest(server)

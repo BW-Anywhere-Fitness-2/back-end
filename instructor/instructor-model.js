@@ -39,11 +39,19 @@ function getAllInst() {
   return db("instructor").select("id", "username", "name", "email", "bio");
 }
 
+async function deleteInstructor(id) {
+  await db("instructor")
+    .where("id", id)
+    .delete();
+  return getAllInst();
+}
+
 module.exports = {
   add,
   findById,
   findBy,
   getInstInfo,
   getAllInst,
-  getInstClasses
+  getInstClasses,
+  deleteInstructor
 };

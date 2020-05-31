@@ -8,11 +8,19 @@ function getUserInfo(id) {
     .first("id", "username", "name", "email", "bio");
 }
 
+async function deleteClass(id) {
+  await db("user")
+    .where("id", id)
+    .delete();
+  return getAllUsers();
+}
+
 function getAllUsers() {
   return db("user").select("id", "username", "name", "email", "bio");
 }
 
 module.exports = {
   getUserInfo,
-  getAllUsers
+  getAllUsers,
+  deleteClass
 };
