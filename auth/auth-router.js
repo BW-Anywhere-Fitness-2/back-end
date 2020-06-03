@@ -16,7 +16,7 @@ router.post("/register/user", async (req, res, next) => {
     if (user) {
       return res.status(409).json({ message: "Username is already taken" });
     }
-    res.status(201).json(await Users.add(req.body));
+    return res.status(201).json(await Users.add(req.body));
   } catch (err) {
     next(err);
   }
@@ -32,7 +32,7 @@ router.post("/register/instructor", async (req, res, next) => {
     if (user) {
       return res.status(409).json({ message: "Username is already taken" });
     }
-    res.status(201).json(await Instructor.add(req.body));
+    return res.status(201).json(await Instructor.add(req.body));
   } catch (err) {
     next(err);
   }

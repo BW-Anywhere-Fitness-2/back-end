@@ -1,7 +1,9 @@
 const db = require("../database/dbConfig");
 
 async function add(newclass, instructor_id) {
-  return db("class").insert({ ...newclass, instructor_id });
+  return db("class")
+    .insert({ ...newclass, instructor_id })
+    .returning("id");
 }
 
 function updateClass(id, classinfo) {

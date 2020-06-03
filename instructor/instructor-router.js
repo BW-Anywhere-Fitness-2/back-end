@@ -18,6 +18,39 @@ router.get("/", (req, res) => {
     });
 });
 
+// get instructor by id
+
+router.get("/:id", (req, res) => {
+  instructorModel
+    .getInstInfo(req.params.id)
+    .then(info => {
+      res.status(200).json(info);
+    })
+    .catch(err => {
+      res.status(400).json({
+        message: "There was an error getting instructor info"
+      });
+    });
+});
+
+// delete instructor by id
+
+router.delete("/:id", (req, res) => {
+  instructorModel
+    .deleteInstructor(req.params.id)
+    .then(response => {
+      res.status(200).json(response);
+    })
+    .catch(err => {
+      res
+        .status(400)
+        .json({
+          message: "Error deleting instructor - check that ID exists",
+          err
+        });
+    });
+});
+
 router.get("/classes/:id/", (req, res) => {
   const id = req.params.id;
 
@@ -27,12 +60,10 @@ router.get("/classes/:id/", (req, res) => {
       res.status(200).json(classes);
     })
     .catch(err => {
-      res
-        .status(400)
-        .json({
-          message:
-            "An error has occurred when accessing classes for this instructor ID"
-        });
+      res.status(400).json({
+        message:
+          "An error has occurred when accessing classes for this instructor ID"
+      });
     });
 });
 
